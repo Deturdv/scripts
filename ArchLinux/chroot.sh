@@ -23,6 +23,7 @@ echo -e "\e[1;31m╚════════════════════
 
 #install base softwares
 packages="konsole
+plasma-meta
 dolphin
 sof-firmware
 alsa-firmware
@@ -32,6 +33,8 @@ wqy-zenhei
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
+intel-ucode
+amd-ucode
 firefox chromium
 ark
 p7zip
@@ -93,4 +96,16 @@ echo -e  "$host" >> /etc/hosts
 #Root Password
 echo "root:5210" | chpasswd 
 
+# Grub
+pacman -S efibootmgr grub --noconfirm
+grub-install --target=x86_64-efi --efi-directory=$EFIpath --bootloader-id=grub --recheck
+grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
+if [ $? -eq 0  ]; then
+	break
+fi
 
+grub-mkconfig -o /boot/grub/grub.cfg
+systemctl enable dhcpcd
+systemctl enable ntpd
+systemctl enable sddm
+umount -R  /mnt
