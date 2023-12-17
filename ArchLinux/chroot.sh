@@ -7,13 +7,13 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 hwclock --systohc
 
 #Create User
-username=li #自行更改
+username=li 
 if grep -q "^$username:" /etc/passwd; then #如果存在用户
         echo "$username:5210" | chpasswd # 使用 chpasswd 命令修改密码
         echo "user $username already exists!!!"
 else
-        useradd -m -G wheel -s /bin/bash $username # 创建用户 $username，并加入 wheel 组，设置 shell 为 /bin/bash
-        echo "$username:5210" | chpasswd # 使用 chpasswd 命令修改密码
+        useradd -m -G wheel -s /bin/bash $username 
+        echo "$username:5210" | chpasswd # 
 	echo "user $username is created successfully!!!"
 fi
 
