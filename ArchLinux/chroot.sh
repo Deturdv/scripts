@@ -98,8 +98,7 @@ echo "root:5210" | chpasswd
 
 # Grub
 pacman -S efibootmgr grub --noconfirm
-grub-install --target=x86_64-efi --efi-directory=$EFIpath --bootloader-id=grub --recheck
-grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB --recheck
 if [ $? -eq 0  ]; then
 	break
 fi
