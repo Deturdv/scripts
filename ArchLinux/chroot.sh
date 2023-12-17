@@ -102,9 +102,14 @@ grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB --rec
 if [ $? -eq 0  ]; then
 	break
 fi
+# Input
+echo 'export GTK_IM_MODULE=fcitx' >> /etc/profile
+echo 'export QT_IM_MODULE=fcitx' >> /etc/profile
+echo 'export XMODIFIERS="@im=fcitx"' >> /etc/profile
 
 grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable dhcpcd
 systemctl enable ntpd
 systemctl enable sddm
+systemctl enable NetworkManager
 umount -R  /mnt
