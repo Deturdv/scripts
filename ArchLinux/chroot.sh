@@ -22,6 +22,7 @@ echo -e "\e[1;31m║ User Creation is Over ║\e[0m"
 echo -e "\e[1;31m╚═══════════════════════╝\e[0m"
 
 #install base softwares
+#pikaur fcitx5-pinyin-moegirl
 packages="konsole
 plasma-meta
 dolphin
