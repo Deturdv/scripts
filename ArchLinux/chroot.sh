@@ -112,6 +112,8 @@ systemctl enable ntpd
 systemctl enable sddm
 systemctl enable NetworkManager
 
+sleep 3
+
 #Reboot
 echo 1 > /proc/sys/kernel/sysrq
 echo b > /proc/sysrq-trigger
