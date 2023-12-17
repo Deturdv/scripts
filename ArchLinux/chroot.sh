@@ -111,4 +111,3 @@ systemctl enable dhcpcd
 systemctl enable ntpd
 systemctl enable sddm
 systemctl enable NetworkManager
-umount -R  /mnt
