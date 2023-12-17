@@ -9,7 +9,7 @@ else
 fi
 
 # mount
-#mount /dev/sda2 /mnt # This is /
+#mount /dev/sda2 /mnt	# This is /
 #mkdir /mnt/efi
 #mount /dev/sda1 /mnt/efi # This is EFI
 #mkdir /mnt/home
