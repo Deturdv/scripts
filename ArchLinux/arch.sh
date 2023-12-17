@@ -1,5 +1,5 @@
 #!/bin/bash
-
+git_repo="https://github.com/Deturdv/scripts/edit/main/ArchLinux/"
 #Disk Scan
 disk=$(sfdisk -l /dev/sda | grep -o '^/dev/sda[0-9]')
 if [[ $disk == *"/dev/sda1"* && $disk == *"/dev/sda2"* && $disk == *"/dev/sda3"* ]]; then
@@ -60,5 +60,11 @@ echo
 echo "Generating fstab and prepare to chroot...."
 sed -i '6,10d' /mnt/etc/fstab
 genfstab -U -p /mnt >> /mnt/etc/fstab
+
+wget $git_repo"chroot.sh"
+mv chroot.sh /mnt
+chmod +x /mnt/chroot.sh
+arch-chroot /mnt /bin/bash -c "bash chroot.sh"
+
 
 
