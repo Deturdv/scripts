@@ -111,3 +111,14 @@ systemctl enable dhcpcd
 systemctl enable ntpd
 systemctl enable sddm
 systemctl enable NetworkManager
+
+#Reboot
+echo 1 > /proc/sys/kernel/sysrq
+echo b > /proc/sysrq-trigger
+
+
+
+
+
+
+
