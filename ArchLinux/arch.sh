@@ -58,7 +58,7 @@ fi
 echo
 echo
 echo "Generating fstab and prepare to chroot...."
-sed -i '6,10d' /mnt/etc/fstab
+sed -i '6,20d' /mnt/etc/fstab
 genfstab -U -p /mnt >> /mnt/etc/fstab
 
 wget $git_repo"chroot.sh"
