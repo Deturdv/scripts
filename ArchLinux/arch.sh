@@ -1,5 +1,5 @@
 #!/bin/bash
-git_repo="https://github.com/Deturdv/scripts/edit/main/ArchLinux/"
+git_repo="https://raw.githubusercontent.com/Deturdv/scripts/main/ArchLinux/"
 #Disk Scan
 disk=$(sfdisk -l /dev/sda | grep -o '^/dev/sda[0-9]')
 if [[ $disk == *"/dev/sda1"* && $disk == *"/dev/sda2"* && $disk == *"/dev/sda3"* ]]; then
