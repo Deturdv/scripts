@@ -63,7 +63,7 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 wget $git_repo"chroot.sh"
 mv chroot.sh /mnt
 chmod +x /mnt/chroot.sh
-arch-chroot /mnt /bin/bash -c "bash chroot.sh"
+arch-chroot /mnt /bin/bash -c "bash chroot.sh" && reboot
 
 
 
