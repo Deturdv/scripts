@@ -60,7 +60,7 @@ echo "Generating fstab and prepare to chroot...."
 sed -i '5,30d' /mnt/etc/fstab
 genfstab -U -p /mnt >> /mnt/etc/fstab
 
-wget $git_repo"chroot.sh"
+#wget $git_repo"chroot.sh"
 mv chroot.sh /mnt
 chmod +x /mnt/chroot.sh
 arch-chroot /mnt /bin/bash -c "bash chroot.sh" && reboot
