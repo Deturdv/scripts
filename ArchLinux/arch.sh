@@ -27,8 +27,6 @@ if [ $? -ne 0 ]; then
 fi
 echo "[ Ping www.gnu.org Succeeded ]"
 
-
-
 # Time
 timedatectl set-ntp true
 timedatectl status | awk '/Local time|Time zone/ {print $0}'
@@ -44,6 +42,7 @@ echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch' >>
 echo "Updating source and install base system...."
 rm -rf /tmp/*
 pacman -Syy
+pacman -S --needed --noconfirm archlinux-keyring
 if [ $? -ne 0 ]; then
 	Error "Bad network! Run the script again!"
 fi
