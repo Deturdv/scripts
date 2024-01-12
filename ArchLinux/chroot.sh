@@ -102,6 +102,8 @@ pacman -S efibootmgr grub --noconfirm
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 
+sleep 1
+
 # Input
 echo 'export GTK_IM_MODULE=fcitx' >> /etc/profile
 echo 'export QT_IM_MODULE=fcitx' >> /etc/profile
@@ -114,11 +116,6 @@ systemctl enable sddm
 systemctl enable NetworkManager
 
 sleep 3
-
-#Reboot
-echo 1 > /proc/sys/kernel/sysrq
-echo b > /proc/sysrq-trigger
-
 
 
 
