@@ -23,6 +23,7 @@ echo -e "\e[1;31m╚════════════════════
 
 #install base softwares
 #pikaur fcitx5-pinyin-moegirl
+rm -rf /var/lib/pacman/db.lck
 packages="konsole
 plasma-meta
 dolphin
@@ -77,7 +78,8 @@ chattr +i  /etc/resolv.conf
 
 #Setting  Local
 echo "Configuring language...."
-sed -i '/en_US.UTF-8/s/^#//;/zh_CN.UTF-8/s/^#//;/zh_CN.GBK GBK/s/^#//;/zh_CN GB2312/s/^#//' /etc/locale.gen
+#sed -i '/en_US.UTF-8/s/^#//;/zh_CN.UTF-8/s/^#//;/zh_CN.GBK GBK/s/^#//;/zh_CN GB2312/s/^#//' /etc/locale.gen
+sed -i '/en_US.UTF-8/s/^#//;/zh_CN.UTF-8/s/^#//' /etc/locale.gen
 locale-gen
 
 
