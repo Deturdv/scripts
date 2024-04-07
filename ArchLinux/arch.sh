@@ -33,7 +33,7 @@ timedatectl status | awk '/Local time|Time zone/ {print $0}'
 
 
 # /pacman.d/mirrorlist
-sed -i '5,1000d' /etc/pacman.d/mirrorlist 		#clear 4 to 1000 line
+sed -i '10,1000d' /etc/pacman.d/mirrorlist 		#clear 4 to 1000 line
 echo 'Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
 echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
 
