@@ -100,11 +100,12 @@ echo -e  "$host" >> /etc/hosts
 echo "root:5210" | chpasswd 
 
 # Grub
+rm -rf /var/lib/pacman/db.lck
 pacman -S efibootmgr grub --noconfirm
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 
-sleep 1
+sleep 2
 
 # Input
 echo 'export GTK_IM_MODULE=fcitx' >> /etc/profile
