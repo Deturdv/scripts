@@ -17,7 +17,7 @@ fi
 
 
 #stop reflector
-systemctl stop reflector.service >/dev/null 2>&1
+#systemctl stop reflector.service >/dev/null 2>&1
 
 # 
 ping -c 1 www.gnu.org &> /dev/null
@@ -40,7 +40,6 @@ echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch' >>
 
 # update database and install base system
 echo "Updating source and install base system...."
-rm -rf /tmp/*
 pacman -Syy
 pacman -S --needed --noconfirm archlinux-keyring
 if [ $? -ne 0 ]; then
@@ -59,9 +58,10 @@ echo
 echo "Generating fstab and prepare to chroot...."
 sed -i '5,30d' /mnt/etc/fstab
 genfstab -U -p /mnt >> /mnt/etc/fstab
+cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 
 #wget $git_repo"chroot.sh"
-mv chroot.sh /mnt
+mv chroot.sh /mnt/
 chmod +x /mnt/chroot.sh
 arch-chroot /mnt /bin/bash -c "bash chroot.sh" && reboot
 
