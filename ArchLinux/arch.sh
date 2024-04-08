@@ -60,6 +60,8 @@ sed -i '5,30d' /mnt/etc/fstab
 genfstab -U -p /mnt >> /mnt/etc/fstab
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 
+sleep 3
+
 #wget $git_repo"chroot.sh"
 mv chroot.sh /mnt/
 chmod +x /mnt/chroot.sh
